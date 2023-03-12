@@ -1,7 +1,7 @@
-import { FiArrowLeft } from 'react-icons/fi'
 import { useAuth } from '../../../hooks/useAuth'
 import Hamburger from '../hamburger/Hamburger'
 import styles from './Header.module.scss'
+import {IoMdArrowBack} from "react-icons/all";
 
 const Header = ({ backLink }) => {
 
@@ -10,10 +10,9 @@ const Header = ({ backLink }) => {
     return (
         <header className={styles.header}>
             <button onClick={() => {}}>
-                <FiArrowLeft />
+                <IoMdArrowBack fill='#fff' fontSize={29}  />
             </button>
 
-            fsdfg
             {/* User profile */}
             <Hamburger />
         </header>
