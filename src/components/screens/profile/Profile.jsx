@@ -1,10 +1,11 @@
 import React from 'react';
+import Layout from "../../layout/Layout.jsx";
 
 const Profile = () => {
     return (
-        <div>
+        <Layout>
             Profile
-        </div>
+        </Layout>
     );
 };
 
