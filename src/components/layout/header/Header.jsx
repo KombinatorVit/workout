@@ -19,7 +19,7 @@ const Header = ({backLink = ''}) => {
                 </button>
 
             ) : <button onClick={() => {
-                navigate('/profile')
+                navigate(isAuth ? '/profile' : '/auth')
             }}>
                 <TfiUser fill='#fff' fontSize={29}/>
 

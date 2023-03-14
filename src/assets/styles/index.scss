@@ -19,12 +19,14 @@
   }
 
   font-family: $default-font;
+  letter-spacing: 0.5px;
 }
 
 *::-webkit-input-placeholder {
   color: #c0c0c0;
   opacity: 1;
 }
+
 *:-moz-placeholder {
   color: #c0c0c0;
   opacity: 1;
