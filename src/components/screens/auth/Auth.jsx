@@ -1,6 +1,3 @@
-import {useState} from 'react'
-import {useForm} from 'react-hook-form'
-
 import Loader from '../../ui/Loader'
 import Button from '../../ui/button/Button'
 import Field from '../../ui/field/Field'
@@ -8,43 +5,17 @@ import Field from '../../ui/field/Field'
 import Layout from '../../layout/Layout'
 
 import styles from './Auth.module.scss'
-import {useMutation} from "@tanstack/react-query";
-import AuthService from "../../../services/auth.service.js";
-
+import {useAuthPage} from './useAuthPage'
 
 const Auth = () => {
-    const [type, setType] = useState('login')
-
-    const {
-        register,
-        handleSubmit,
-        formState: {errors},
-        reset
-    } = useForm({
-        mode: 'onChange'
-    })
-
-
-    const {mutate, isLoading} = useMutation(
-        ['auth'],
-        ({email, password}) => AuthService.main(email, password, type),
-        {
-            onSuccess: data => {
-                alert('success')
-                reset()
-            }
-        }
-    )
-    const onSubmit = data => {
-        // type
-        mutate(data.email, data.password)
-    }
+    const {errors, handleSubmit, isLoading, onSubmit, register, setType} =
+        useAuthPage()
 
     return (
         <>
             <Layout heading='Sign in' bgImage='/images/auth-bg.png'/>
             <div className='wrapper-inner-page'>
-                {(isLoading) && <Loader/>}
+                {isLoading && <Loader/>}
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <Field
                         error={errors?.email?.message}
