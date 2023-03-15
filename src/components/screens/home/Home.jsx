@@ -1,15 +1,16 @@
-import { useNavigate } from 'react-router-dom'
+import {useNavigate} from 'react-router-dom'
 
 import Button from '../../ui/button/Button'
 
-import { useAuth } from '../../../hooks/useAuth'
+import {useAuth} from '../../../hooks/useAuth'
 
 import Layout from '../../layout/Layout'
 
 import styles from './Home.module.scss'
+import Statistics from "../profile/statistics/Statistics.jsx";
 
 function Home() {
-    const { isAuth } = useAuth()
+    const {isAuth} = useAuth()
 
     const navigate = useNavigate()
     return (
@@ -18,7 +19,7 @@ function Home() {
                 {isAuth ? 'New' : 'Sign in'}
             </Button>
             <h1 className={styles.heading}>EXERCISES FOR THE SHOULDERS</h1>
-            {/* TODO: Counters */}
+            <Statistics/>
         </Layout>
     )
 }
